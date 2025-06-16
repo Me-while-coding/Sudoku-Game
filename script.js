@@ -118,7 +118,9 @@ buttons.forEach((button)=>{
     if(selectedCell !== null){
       if(selectedCell.dataset.answer === button.innerText){
         selectedCell.value = button.innerText;
-        selectedCell.readOnly = true;
+        selectedCell.parentElement.classList.remove("selected");
+        selectedCell.disabled = true;
+        selectedCell = null;
         solvedCellCount++;
         checkWin(solvedCellCount);
       }
@@ -141,8 +143,9 @@ document.addEventListener("keydown",(e)=>{
     let correct = selectedCell.dataset.answer;
     if(key === correct){
       selectedCell.value = key;
-      selectedCell.readOnly = true;
+      selectedCell.disabled = true;
       selectedCell.parentElement.classList.remove("selected");
+      selectedCell = null;
       solvedCellCount++;
       checkWin();
     }
@@ -157,14 +160,15 @@ document.addEventListener("keydown",(e)=>{
 
 document.querySelectorAll(".cell input").forEach((input) => {
   input.addEventListener("input", () => {
-    if (!selectedCell || selectedCell.readOnly) return;
+    if (!selectedCell || selectedCell.disabled) return;
 
     let typed = selectedCell.value;
     let answer = selectedCell.dataset.answer;
 
     if (typed === answer) {
-      selectedCell.readOnly = true;
+      selectedCell.disabled = true;
       selectedCell.classList.remove("selected");
+      selectedCell = null;
       solvedCellCount++;
       checkWin();
     } else {
