@@ -4,14 +4,16 @@
 
 body{
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .sudoku{
     display: grid;
     grid-template-columns: repeat(9,1fr);
     grid-template-rows: repeat(9,1fr);
-    width: 450px;
-    height: 450px;
+    width: 350px;
+    height: 350px;
     gap: 1px;
     background-color: black;
 }
@@ -56,11 +58,11 @@ button{
 }
 
 .button-container{
-    height: 450px;
+    width: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-left: 40px;
+    margin-top: 40px;
 }
 
 .selected{
