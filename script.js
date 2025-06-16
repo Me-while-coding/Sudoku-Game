@@ -115,14 +115,41 @@ buttons.forEach((button)=>{
     if(selectedCell !== null){
       if(selectedCell.dataset.answer === button.innerText){
         selectedCell.value = button.innerText;
+        selectedCell.disabled = true;
         solvedCellCount++;
         checkWin(solvedCellCount);
       }
       else{
-        alert("wrong choice.Try again");
+        alert("wrong choice! Try again");
       }
     }
   })
+})
+
+document.addEventListener("keydown",(e)=>{
+  if(selectedCell === null) return;
+  let key = e.key;
+  if(key<"1" || key>"9"){
+    e.preventDefault();
+    return;
+  }
+  if(key >="1" && key<="9"){
+    e.preventDefault();
+    let correct = selectedCell.dataset.answer;
+    if(key === correct){
+      selectedCell.value = key;
+      selectedCell.disabled = true;
+      selectedCell.parentElement.classList.remove("selected");
+      selectedCell=null;
+      solvedCellCount++;
+      checkWin();
+    }
+    else{
+      alert("Wrong choice! Try again");
+      selectedCell.value="";
+    }
+  }
+
 })
 
 
