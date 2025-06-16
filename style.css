@@ -12,8 +12,8 @@ body{
     display: grid;
     grid-template-columns: repeat(9,1fr);
     grid-template-rows: repeat(9,1fr);
-    width: 350px;
-    height: 350px;
+    width: 90vmin;
+    height: 90vmin;
     gap: 1px;
     background-color: black;
 }
@@ -47,21 +47,23 @@ body{
   text-align: center;
   border: none;
   outline: none;
-  font-size: 18px;
+  font-size: 3vmin;
   font-weight: bold;
   background: transparent;
   caret-color: transparent;
 }
 
 button{
-    font-size: 20px;
+    font-size: 3.5vmin;
 }
 
 .button-container{
-    width: 450px;
+  width: 90vmin;
+    max-width: 450px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
     margin-top: 40px;
 }
 
