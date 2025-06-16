@@ -8,9 +8,12 @@ for (let i = 1; i <= 81; i++) {
   const input = document.createElement("input");
   input.type = "text";
   input.maxLength = 1;
+  input.setAttribute("inputmode","numeric");
+  input.setAttribute("readonly",false);
   cell.appendChild(input);
   container.appendChild(cell);
 }
+
 
 // Create empty 9x9 board
 let board = Array.from({ length: 9 }, () => Array(9).fill(0));
@@ -145,7 +148,7 @@ document.addEventListener("keydown",(e)=>{
       checkWin();
     }
     else{
-      alert("Wrong choice! Try again");
+      alert("Wrong choice! Try again"); 
       selectedCell.value="";
     }
   }
@@ -153,3 +156,22 @@ document.addEventListener("keydown",(e)=>{
 })
 
 
+document.querySelectorAll(".cell input").forEach((input) => {
+  input.addEventListener("input", () => {
+    if (!selectedCell || selectedCell.disabled) return;
+
+    let typed = selectedCell.value;
+    let answer = selectedCell.dataset.answer;
+
+    if (typed === answer) {
+      selectedCell.disabled = true;
+      selectedCell.classList.remove("selected");
+      selectedCell = null;
+      solvedCellCount++;
+      checkWin();
+    } else {
+      alert("Wrong number!");
+      selectedCell.value = ""; // clear the wrong input
+    }
+  });
+});
