@@ -118,7 +118,7 @@ buttons.forEach((button)=>{
     if(selectedCell !== null){
       if(selectedCell.dataset.answer === button.innerText){
         selectedCell.value = button.innerText;
-        selectedCell.disabled = true;
+        selectedCell.readOnly = true;
         solvedCellCount++;
         checkWin(solvedCellCount);
       }
