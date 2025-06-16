@@ -6,9 +6,9 @@ for (let i = 1; i <= 81; i++) {
   cell.classList.add("cell");
   cell.classList.add(`cell-${i}`);
   const input = document.createElement("input");
-  input.type = "text";
+  input.type = "tel";
   input.maxLength = 1;
-  input.setAttribute("inputmode","numeric");
+  input.inputMode = "numeric";
   input.readOnly = false;
   cell.appendChild(input);
   container.appendChild(cell);
