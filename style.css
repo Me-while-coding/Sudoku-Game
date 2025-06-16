@@ -55,6 +55,8 @@ body{
 
 button{
     font-size: 3.5vmin;
+    height: 8vmin;
+    width: 8vmin;
 }
 
 .button-container{
@@ -63,7 +65,7 @@ button{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     margin-top: 40px;
 }
 
