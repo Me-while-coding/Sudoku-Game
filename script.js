@@ -167,7 +167,7 @@ document.querySelectorAll(".cell input").forEach((input) => {
 
     if (typed === answer) {
       selectedCell.disabled = true;
-      selectedCell.classList.remove("selected");
+      selectedCell.parentElement.classList.remove("selected");
       selectedCell = null;
       solvedCellCount++;
       checkWin();
