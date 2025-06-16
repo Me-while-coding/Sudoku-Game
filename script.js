@@ -101,6 +101,13 @@ document.querySelectorAll(".cell input").forEach((cell)=>{
       selectedCell.parentElement.classList.add("selected");
   })
 })
+function checkWin(solvedCellCount){
+  if(solvedCellCount === 30){
+    setTimeout(() => {
+      alert("congrats! you win")
+    }, 50);
+  }
+}
 let solvedCellCount = 0;
 let buttons= document.querySelectorAll(".btn");
 buttons.forEach((button)=>{
@@ -109,9 +116,7 @@ buttons.forEach((button)=>{
       if(selectedCell.dataset.answer === button.innerText){
         selectedCell.value = button.innerText;
         solvedCellCount++;
-        if(solvedCellCount===30){
-          alert("CONGRATS U WIN");
-        }
+        checkWin(solvedCellCount);
       }
       else{
         alert("wrong choice.Try again");
