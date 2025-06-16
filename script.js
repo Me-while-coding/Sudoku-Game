@@ -8,7 +8,7 @@ for (let i = 1; i <= 81; i++) {
   const input = document.createElement("input");
   input.type = "tel";
   input.maxLength = 1;
-  input.inputMode = "numeric";
+  input.inputMode = "none";
   input.readOnly = false;
   cell.appendChild(input);
   container.appendChild(cell);
