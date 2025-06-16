@@ -141,9 +141,8 @@ document.addEventListener("keydown",(e)=>{
     let correct = selectedCell.dataset.answer;
     if(key === correct){
       selectedCell.value = key;
-      selectedCell.disabled = true;
+      selectedCell.readOnly = true;
       selectedCell.parentElement.classList.remove("selected");
-      selectedCell=null;
       solvedCellCount++;
       checkWin();
     }
@@ -158,15 +157,14 @@ document.addEventListener("keydown",(e)=>{
 
 document.querySelectorAll(".cell input").forEach((input) => {
   input.addEventListener("input", () => {
-    if (!selectedCell || selectedCell.disabled) return;
+    if (!selectedCell || selectedCell.readOnly) return;
 
     let typed = selectedCell.value;
     let answer = selectedCell.dataset.answer;
 
     if (typed === answer) {
-      selectedCell.disabled = true;
+      selectedCell.readOnly = true;
       selectedCell.classList.remove("selected");
-      selectedCell = null;
       solvedCellCount++;
       checkWin();
     } else {
