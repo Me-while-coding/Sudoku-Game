@@ -9,7 +9,7 @@ for (let i = 1; i <= 81; i++) {
   input.type = "text";
   input.maxLength = 1;
   input.setAttribute("inputmode","numeric");
-  input.setAttribute("readonly",false);
+  input.readOnly = false;
   cell.appendChild(input);
   container.appendChild(cell);
 }
