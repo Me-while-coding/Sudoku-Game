@@ -152,6 +152,20 @@ document.addEventListener("keydown",(e)=>{
 
 })
 
-
+selectedCell.addEventListener("input",()=>{
+  const userValue = selectedCell.value;
+  const correct = selectedCell.dataset.answer;
+  if(userValue === correct){
+    selectedCell.disabled=true;
+    selectedCell.parentElement.classList.remove("selected");
+    selectedCell = null;
+    solvedCellCount++;
+    checkWin();
+  }
+  else{
+    alert("Wrong Choice! Try again");
+    selectedCell.value = "";
+  }
+});
 
 
